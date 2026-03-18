@@ -1,0 +1,2037 @@
+<!doctype html>
+<html lang="gu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MJ Live Bhungla Bataka | Order Now</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg-dark: #0a0e17;
+        --bg-card: #111827;
+        --bg-card-hover: #1a2235;
+        --accent-cyan: #00f5ff;
+        --accent-cyan-dim: #00d4e0;
+        --accent-orange: #ff6b2c;
+        --accent-orange-bright: #ff8c4b;
+        --accent-green: #00e676;
+        --accent-purple: #a855f7;
+        --text-primary: #f8fafc;
+        --text-secondary: #94a3b8;
+        --text-muted: #64748b;
+        --border-color: #1e293b;
+        --glow-cyan: 0 0 30px rgba(0, 245, 255, 0.3);
+        --glow-orange: 0 0 30px rgba(255, 107, 44, 0.4);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif !important;
+        background-color: var(--bg-dark);
+        color: var(--text-primary);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      /* Animated Background Grid */
+      .bg-grid {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image:
+          linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg-dark);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(
+          180deg,
+          var(--accent-cyan),
+          var(--accent-orange)
+        );
+        border-radius: 4px;
+      }
+
+      /* Preloader */
+      .preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--bg-dark);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition:
+          opacity 0.6s ease,
+          visibility 0.6s ease;
+      }
+
+      .preloader.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .preloader-content {
+        text-align: center;
+      }
+
+      .preloader-logo {
+        font-size: 2.5rem;
+        font-weight: 900;
+        background: linear-gradient(
+          90deg,
+          var(--accent-cyan),
+          var(--accent-orange)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: glitch 2s ease-in-out infinite;
+      }
+
+      .preloader-bar {
+        width: 200px;
+        height: 4px;
+        background: var(--bg-card);
+        border-radius: 2px;
+        margin: 30px auto;
+        overflow: hidden;
+      }
+
+      .preloader-bar-inner {
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          var(--accent-cyan),
+          var(--accent-orange)
+        );
+        border-radius: 2px;
+        animation: loading 2s ease forwards;
+      }
+
+      @keyframes loading {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+
+      @keyframes glitch {
+        0%,
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        20% {
+          opacity: 0.8;
+          transform: translateX(-2px);
+        }
+        40% {
+          opacity: 1;
+          transform: translateX(2px);
+        }
+        60% {
+          opacity: 0.9;
+          transform: translateX(-1px);
+        }
+        80% {
+          opacity: 1;
+          transform: translateX(1px);
+        }
+      }
+
+      /* Navbar */
+      .navbar {
+        background: rgba(10, 14, 23, 0.85);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border-color);
+        padding: 15px 0;
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1000;
+      }
+
+      .navbar.scrolled {
+        padding: 10px 0;
+        background: rgba(10, 14, 23, 0.95);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .navbar-brand {
+        font-size: 1.3rem;
+        font-weight: 800;
+        background: linear-gradient(
+          90deg,
+          var(--accent-cyan),
+          var(--accent-orange)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .navbar-brand .logo-icon {
+        width: 42px;
+        height: 42px;
+        background: linear-gradient(
+          135deg,
+          var(--accent-cyan),
+          var(--accent-orange)
+        );
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        color: var(--bg-dark);
+        box-shadow: var(--glow-cyan);
+      }
+
+      .nav-link {
+        color: var(--text-secondary) !important;
+        font-weight: 500;
+        padding: 10px 20px !important;
+        position: relative;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+      }
+
+      .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--accent-cyan);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+        box-shadow: 0 0 10px var(--accent-cyan);
+      }
+
+      .nav-link:hover::before,
+      .nav-link.active::before {
+        width: 70%;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--accent-cyan) !important;
+      }
+
+      .navbar-toggler {
+        border: 2px solid var(--accent-cyan);
+        padding: 8px 12px;
+        border-radius: 8px;
+      }
+
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%2300F5FF' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        background: var(--bg-dark);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 800px;
+        height: 800px;
+        background: radial-gradient(
+          circle,
+          rgba(0, 245, 255, 0.08) 0%,
+          transparent 70%
+        );
+        animation: pulse-glow 8s ease-in-out infinite;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: -30%;
+        left: -10%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 107, 44, 0.06) 0%,
+          transparent 70%
+        );
+        animation: pulse-glow 10s ease-in-out infinite reverse;
+      }
+
+      @keyframes pulse-glow {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.5;
+        }
+        50% {
+          transform: scale(1.2);
+          opacity: 0.8;
+        }
+      }
+
+      .hero-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--accent-cyan);
+        border-radius: 50%;
+        box-shadow: 0 0 10px var(--accent-cyan);
+        animation: float-up 10s linear infinite;
+      }
+
+      @keyframes float-up {
+        0% {
+          transform: translateY(100vh) scale(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100px) scale(1);
+          opacity: 0;
+        }
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(0, 245, 255, 0.1);
+        border: 1px solid rgba(0, 245, 255, 0.3);
+        color: var(--accent-cyan);
+        padding: 10px 24px;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 25px;
+        animation: fadeInUp 0.8s ease forwards;
+        letter-spacing: 0.5px;
+      }
+
+      .hero-title {
+        font-size: clamp(2.2rem, 6vw, 4rem);
+        font-weight: 900;
+        color: var(--text-primary);
+        line-height: 1.15;
+        margin-bottom: 25px;
+        animation: fadeInUp 0.8s ease 0.2s forwards;
+        opacity: 0;
+      }
+
+      .hero-title .highlight {
+        background: linear-gradient(
+          90deg,
+          var(--accent-cyan),
+          var(--accent-orange)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-subtitle {
+        font-size: 1.15rem;
+        color: var(--text-secondary);
+        margin-bottom: 35px;
+        max-width: 520px;
+        line-height: 1.8;
+        animation: fadeInUp 0.8s ease 0.4s forwards;
+        opacity: 0;
+      }
+
+      .hero-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        animation: fadeInUp 0.8s ease 0.6s forwards;
+        opacity: 0;
+      }
+
+      .btn-whatsapp {
+        background: linear-gradient(135deg, #25d366, #128c7e);
+        color: white;
+        padding: 16px 36px;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 1rem;
+        border: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-whatsapp::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .btn-whatsapp:hover::before {
+        left: 100%;
+      }
+
+      .btn-whatsapp:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        color: white;
+      }
+
+      .btn-outline-glow {
+        background: transparent;
+        color: var(--accent-cyan);
+        padding: 16px 36px;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 1rem;
+        border: 2px solid var(--accent-cyan);
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .btn-outline-glow:hover {
+        background: var(--accent-cyan);
+        color: var(--bg-dark);
+        transform: translateY(-4px);
+        box-shadow: var(--glow-cyan);
+      }
+
+      .hero-image {
+        position: relative;
+        animation: fadeInRight 1s ease 0.4s forwards;
+        opacity: 0;
+      }
+
+      .hero-image-main {
+        width: 100%;
+        max-width: 480px;
+        border-radius: 24px;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 245, 255, 0.1),
+          rgba(255, 107, 44, 0.1)
+        );
+        border: 1px solid var(--border-color);
+        margin: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      @keyframes rotate-border {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .menu-image {
+        width: 100% !important;
+        height: 220px !important;
+        overflow: hidden !important;
+        border-radius: 10px !important;
+      }
+
+      .menu-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+      }
+      .menu-item {
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
+      }
+
+      .hero-image-main i {
+        font-size: 6rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-cyan),
+          var(--accent-orange)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-image-badge {
+        position: absolute;
+        bottom: -15px;
+        left: -15px;
+        background: linear-gradient(
+          135deg,
+          var(--accent-orange),
+          var(--accent-orange-bright)
+        );
+        color: white;
+        padding: 18px 28px;
+        border-radius: 14px;
+
+        font-weight: 800;
+        font-size: 1rem;
+        box-shadow: var(--glow-orange);
+        z-index: 2;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(60px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Section Styles */
+      section {
+        padding: 100px 0;
+        position: relative;
+        z-index: 1;
+      }
+
+      .section-title {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        font-weight: 800;
+        color: var(--text-primary);
+        margin-bottom: 15px;
+      }
+
+      .section-subtitle {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        margin-bottom: 50px;
+      }
+
+      .section-badge {
+        display: inline-block;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 245, 255, 0.15),
+          rgba(255, 107, 44, 0.15)
+        );
+        border: 1px solid rgba(0, 245, 255, 0.3);
+        color: var(--accent-cyan);
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      /* About Section */
+      .about-section {
+        background: linear-gradient(
+          180deg,
+          var(--bg-dark) 0%,
+          rgba(17, 24, 39, 0.5) 100%
+        );
+      }
+
+      .about-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        padding: 40px 30px;
+        transition: all 0.4s ease;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--accent-cyan),
+          var(--accent-orange)
+        );
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+      }
+
+      .about-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .about-card:hover {
+        transform: translateY(-10px);
+        background: var(--bg-card-hover);
+        border-color: rgba(0, 245, 255, 0.2);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      }
+
+      .about-icon {
+        width: 75px;
+        height: 75px;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 245, 255, 0.1),
+          rgba(255, 107, 44, 0.1)
+        );
+        border: 1px solid rgba(0, 245, 255, 0.2);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        color: var(--accent-cyan);
+        margin-bottom: 25px;
+        transition: all 0.3s ease;
+      }
+
+      .about-card:hover .about-icon {
+        transform: scale(1.1);
+        box-shadow: var(--glow-cyan);
+      }
+
+      .about-card h4 {
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+      }
+
+      .about-card p {
+        color: var(--text-secondary);
+        line-height: 1.7;
+      }
+
+      /* Menu Section */
+      .menu-section {
+        background: var(--bg-dark);
+      }
+
+      .menu-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        height: 100%;
+      }
+
+      .menu-item:hover {
+        transform: translateY(-10px);
+        border-color: rgba(255, 107, 44, 0.3);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+      }
+
+      .menu-image {
+        height: 200px;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 245, 255, 0.08),
+          rgba(255, 107, 44, 0.08)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .menu-image i {
+        background: linear-gradient(
+          135deg,
+          var(--accent-cyan),
+          var(--accent-orange)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .menu-content {
+        padding: 25px;
+      }
+
+      .menu-content h5 {
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+        font-size: 1.15rem;
+      }
+
+      .menu-content p {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        margin-bottom: 18px;
+      }
+
+      .menu-price {
+        font-size: 1.3rem;
+        font-weight: 800;
+        background: linear-gradient(
+          90deg,
+          var(--accent-orange),
+          var(--accent-orange-bright)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Order Form Section */
+      .order-section {
+        background: linear-gradient(
+          180deg,
+          var(--bg-card) 0%,
+          var(--bg-dark) 100%
+        );
+      }
+
+      .order-form-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 24px;
+        padding: 50px 40px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .order-form-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--accent-cyan),
+          var(--accent-orange),
+          var(--accent-cyan)
+        );
+      }
+
+      .form-group {
+        margin-bottom: 25px;
+      }
+
+      .form-label {
+        display: block;
+        color: var(--text-primary);
+        font-weight: 600;
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+      }
+
+      .form-label i {
+        color: var(--accent-cyan);
+        margin-right: 8px;
+      }
+
+      .form-control-custom {
+        width: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        border: 2px solid var(--border-color);
+        border-radius: 12px;
+        padding: 16px 20px;
+        color: var(--text-primary);
+        font-size: 1rem;
+
+        transition: all 0.3s ease;
+      }
+
+      .form-control-custom:focus {
+        outline: none;
+        border-color: var(--accent-cyan);
+        background: rgba(0, 0, 0, 0.6);
+        box-shadow: 0 0 20px rgba(0, 245, 255, 0.15);
+      }
+
+      .form-control-custom::placeholder {
+        color: var(--text-muted);
+      }
+
+      .form-control-custom:hover {
+        border-color: rgba(0, 245, 255, 0.4);
+      }
+
+      .btn-submit {
+        width: 100%;
+        background: linear-gradient(135deg, #25d366, #128c7e);
+        color: white;
+        padding: 18px 30px;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-submit::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.6s ease;
+      }
+
+      .btn-submit:hover::before {
+        left: 100%;
+      }
+
+      .btn-submit:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+      }
+
+      .btn-submit:active {
+        transform: translateY(-1px);
+      }
+
+      .order-info {
+        background: rgba(0, 245, 255, 0.05);
+        border: 1px solid rgba(0, 245, 255, 0.15);
+        border-radius: 14px;
+        padding: 20px 25px;
+        margin-top: 30px;
+      }
+
+      .order-info-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+
+      .order-info-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .order-info-item i {
+        color: var(--accent-cyan);
+        font-size: 1.1rem;
+      }
+
+      .order-info-item strong {
+        color: var(--accent-orange);
+      }
+
+      /* Timing Section */
+      .timing-section {
+        background: linear-gradient(
+          180deg,
+          var(--bg-dark) 0%,
+          var(--bg-card) 100%
+        );
+      }
+
+      .timing-card {
+        background: rgba(17, 24, 39, 0.6);
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        padding: 40px 30px;
+        backdrop-filter: blur(10px);
+        transition: all 0.4s ease;
+      }
+
+      .timing-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(0, 245, 255, 0.3);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      }
+
+      .timing-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 245, 255, 0.1),
+          rgba(255, 107, 44, 0.1)
+        );
+        border: 1px solid rgba(0, 245, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        color: var(--accent-cyan);
+        margin: 0 auto 25px;
+      }
+
+      .timing-card h4 {
+        color: var(--text-primary);
+        font-weight: 700;
+        margin-bottom: 15px;
+        font-size: 1.15rem;
+      }
+
+      .timing-card p {
+        color: var(--text-secondary);
+        font-size: 1.05rem;
+      }
+
+      .timing-card .highlight-text {
+        background: linear-gradient(
+          90deg,
+          var(--accent-cyan),
+          var(--accent-orange)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+
+        font-weight: 800;
+        font-size: 1.4rem;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        background: linear-gradient(
+          180deg,
+          var(--bg-card) 0%,
+          var(--bg-dark) 100%
+        );
+      }
+
+      .contact-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 24px;
+        padding: 40px;
+      }
+
+      .contact-info-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        margin-bottom: 25px;
+        padding: 22px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 16px;
+        border: 1px solid transparent;
+        transition: all 0.3s ease;
+      }
+
+      .contact-info-item:hover {
+        transform: translateX(8px);
+        border-color: rgba(0, 245, 255, 0.2);
+        background: rgba(0, 245, 255, 0.03);
+      }
+
+      .contact-icon {
+        width: 55px;
+        height: 55px;
+        background: linear-gradient(
+          135deg,
+          var(--accent-cyan),
+          var(--accent-orange)
+        );
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        color: var(--bg-dark);
+        flex-shrink: 0;
+      }
+
+      .contact-details h5 {
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 6px;
+        font-size: 1rem;
+      }
+
+      .contact-details p {
+        color: var(--text-secondary);
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      .contact-details a {
+        color: var(--accent-cyan);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .contact-details a:hover {
+        color: var(--accent-orange);
+      }
+
+      /* Map Section */
+      .map-container {
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        height: 100%;
+        min-height: 350px;
+      }
+
+      .map-container iframe {
+        width: 100%;
+        height: 100%;
+        min-height: 350px;
+        border: none;
+        filter: grayscale(100%) invert(92%) contrast(90%);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--bg-card);
+        padding: 70px 0 30px;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .footer-brand {
+        font-size: 1.5rem;
+        font-weight: 800;
+        background: linear-gradient(
+          90deg,
+          var(--accent-cyan),
+          var(--accent-orange)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 18px;
+      }
+
+      .footer-text {
+        color: var(--text-secondary);
+        margin-bottom: 25px;
+        line-height: 1.7;
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 14px;
+      }
+
+      .footer-social a {
+        width: 44px;
+        height: 44px;
+        background: rgba(0, 245, 255, 0.05);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+      }
+
+      .footer-social a:hover {
+        background: var(--accent-cyan);
+        color: var(--bg-dark);
+        transform: translateY(-4px);
+        box-shadow: var(--glow-cyan);
+      }
+
+      .footer-title {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 22px;
+        font-size: 1rem;
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 14px;
+      }
+
+      .footer-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.95rem;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent-cyan);
+        padding-left: 8px;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid var(--border-color);
+        padding-top: 30px;
+        margin-top: 50px;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      /* WhatsApp Float Button */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #25d366, #128c7e);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.7rem;
+        box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+        z-index: 999;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .whatsapp-float:hover {
+        transform: scale(1.1) translateY(-5px);
+        color: white;
+        box-shadow: 0 12px 40px rgba(37, 211, 102, 0.5);
+      }
+
+      /* Scroll Reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Reduced Motion */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .hero {
+          padding: 130px 0 80px;
+        }
+
+        .hero-title {
+          font-size: 2rem;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+        }
+
+        .hero-image {
+          margin-top: 50px;
+        }
+
+        .hero-image-main {
+          padding: 40px;
+        }
+
+        .hero-image-badge {
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          padding: 14px 22px;
+          font-size: 0.85rem;
+        }
+
+        section {
+          padding: 70px 0;
+        }
+
+        .contact-card,
+        .order-form-card {
+          padding: 30px 25px;
+        }
+
+        .about-card {
+          padding: 30px 25px;
+        }
+
+        .timing-card {
+          padding: 30px 25px;
+        }
+
+        .navbar-brand {
+          font-size: 1rem;
+        }
+
+        .navbar-brand .logo-icon {
+          width: 36px;
+          height: 36px;
+          font-size: 0.95rem;
+        }
+
+        .map-container {
+          min-height: 280px;
+        }
+
+        .footer-brand {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-badge {
+          font-size: 0.8rem;
+          padding: 8px 18px;
+        }
+
+        .btn-whatsapp,
+        .btn-outline-glow,
+        .btn-submit {
+          padding: 14px 28px;
+          font-size: 0.9rem;
+          width: 100%;
+          justify-content: center;
+        }
+
+        .section-title {
+          font-size: 1.5rem;
+        }
+
+        .section-subtitle {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background Grid -->
+    <div class="bg-grid"></div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+      <div class="preloader-content">
+        <div class="preloader-logo">MJ LIVE</div>
+        <div class="preloader-bar">
+          <div class="preloader-bar-inner"></div>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem">
+          Loading Experience...
+        </p>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <span class="logo-icon"><i class="bi bi-fire"></i></span>
+          MJ Live Bhungla Bataka
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#menu">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#order">Order Now</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-particles" id="particles"></div>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="hero-content">
+              <div class="hero-badge">
+                <i class="bi bi-geo-alt-fill"></i>
+                Ahmedabad, Gujarat
+              </div>
+              <h1 class="hero-title">
+                Authentic
+                <span class="highlight">Bhungla Bataka</span> Experience
+              </h1>
+              <p class="hero-subtitle">
+                સ્વાદિષ્ટ અને તાજા ભુંગળા બટાકા - દરેક પ્લેટ માત્ર 40 રૂપિયામાં।
+                તમારી દરેક પાર્ટી માટે શ્રેષ્ઠ પસંદગી!
+              </p>
+              <div class="hero-buttons">
+                <a href="#order" class="btn-whatsapp">
+                  <i class="bi bi-cart-check"></i>
+                  Order Now
+                </a>
+                <a href="#menu" class="btn-outline-glow">
+                  <i class="bi bi-list-ul"></i>
+                  View Menu
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-image text-center">
+              <div class="hero-image-main">
+                <img src="mj-main.jpg" alt="" />
+              </div>
+              <div class="hero-image-badge">
+                <i class="bi bi-star-fill me-2"></i>
+                Starting at Rs.40/plate
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-badge">About Us</span>
+          <h2 class="section-title">Why Choose MJ Live?</h2>
+          <p class="section-subtitle">
+            અમે ગુણવત્તા અને સ્વાદ માટે પ્રતિબદ્ધ છીએ
+          </p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="about-card reveal text-center">
+              <div class="about-icon mx-auto">
+                <i class="bi bi-hand-thumbs-up-fill"></i>
+              </div>
+              <h4>Best Quality</h4>
+              <p>
+                તાજા અને શ્રેષ્ઠ સામગ્રીથી બનેલું - દરેક વાનગીમાં સ્વાદની
+                ગેરંટી!
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="about-card reveal text-center">
+              <div class="about-icon mx-auto">
+                <i class="bi bi-currency-rupee"></i>
+              </div>
+              <h4>Affordable Price</h4>
+              <p>
+                માત્ર 40 રૂપિયા પ્રતિ પ્લેટ - બજેટ-ફ્રેન્ડલી કિંમતમાં શ્રેષ્ઠ
+                સ્વાદ!
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="about-card reveal text-center">
+              <div class="about-icon mx-auto">
+                <i class="bi bi-truck"></i>
+              </div>
+              <h4>Party Catering</h4>
+              <p>25+ પ્લેટનો ઓર્ડર આપો અને તમારી પાર્ટીને યાદગાર બનાવો!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-badge">Our Menu</span>
+          <h2 class="section-title">Delicious Offerings</h2>
+          <p class="section-subtitle">અમારી વિશેષ વાનગીઓ તપાસો</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="menu-item reveal">
+              <div class="menu-image">
+                <img src="mj-1.jpg" alt="" />
+              </div>
+              <div class="menu-content">
+                <h5>Bhungla Bataka</h5>
+                <p>અમારી સિગ્નેચર ડિશ - મસાલેદાર અને ક્રિસ્પી બટાકા</p>
+                <span class="menu-price">Rs.40/plate</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="menu-item reveal">
+              <div class="menu-image">
+                <img src="mj-2.jpg" alt="" />
+              </div>
+              <div class="menu-content">
+                <h5>Cheese Bhungla Bataka</h5>
+                <p>
+                  મસાલેદાર ભુંગળા બટાકા પર સ્વાદિષ્ટ ચીઝ ઉમેરેલી ખાસ વાનગી.
+                  ક્રિસ્પી બટાકા અને મેલ્ટેડ ચીઝનો મજા ભરેલો સ્વાદ દરેક બાઇટમાં
+                  અનુભવાય છે.
+                </p>
+                <span class="menu-price">Rs.40/plate</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="menu-item reveal">
+              <div class="menu-image">
+                <img src="mj-3.jpg" alt="" />
+              </div>
+              <div class="menu-content">
+                <h5>Masala Bhungla Bataka</h5>
+                <p>
+                  તાજા અને ક્રિસ્પી ભુંગળા બટાકા પર ખાસ મસાલા અને લીલા ધાણા સાથે
+                  તૈયાર કરેલી સ્વાદિષ્ટ વાનગી. મસાલેદાર અને ટેસ્ટી સ્ટ્રીટ ફૂડનો
+                  અનોખો અનુભવ.
+                </p>
+                <span class="menu-price">Contact for Price</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Order Form Section -->
+    <section class="order-section" id="order">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="text-center mb-5">
+              <span class="section-badge">Order Now</span>
+              <h2 class="section-title">Place Your Order</h2>
+              <p class="section-subtitle">
+                નીચેના ફોર્મ ભરો અને સીધા WhatsApp પર ઓર્ડર મોકલો
+              </p>
+            </div>
+
+            <div class="order-form-card reveal">
+              <form id="orderForm">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">
+                        <i class="bi bi-person-fill"></i>
+                        Your Name / તમારું નામ
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control-custom"
+                        id="customerName"
+                        placeholder="Enter your name"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">
+                        <i class="bi bi-telephone-fill"></i>
+                        Mobile Number / મોબાઇલ નંબર
+                      </label>
+                      <input
+                        type="tel"
+                        class="form-control-custom"
+                        id="customerPhone"
+                        placeholder="Enter mobile number"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">
+                        <i class="bi bi-box-fill"></i>
+                        Number of Plates / પ્લેટની સંખ્યા
+                      </label>
+                      <input
+                        type="number"
+                        class="form-control-custom"
+                        id="plateCount"
+                        placeholder="Minimum 10 plates"
+                        min="10"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">
+                        <i class="bi bi-calendar-event-fill"></i>
+                        Order Date / ઓર્ડરની તારીખ
+                      </label>
+                      <input
+                        type="date"
+                        class="form-control-custom"
+                        id="orderDate"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">
+                    <i class="bi bi-chat-left-text-fill"></i>
+                    Special Instructions (Optional) / વિશેષ નિર્દેશો
+                  </label>
+                  <textarea
+                    class="form-control-custom"
+                    id="specialInstructions"
+                    rows="3"
+                    placeholder="Any special requirements..."
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                  <i class="bi bi-whatsapp"></i>
+                  Send Order via WhatsApp
+                </button>
+
+                <div class="order-info">
+                  <div class="order-info-item">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <span>Minimum Order: <strong>10 Plates</strong></span>
+                  </div>
+                  <div class="order-info-item">
+                    <i class="bi bi-clock-fill"></i>
+                    <span>Order Before: <strong>2 Hours Advance</strong></span>
+                  </div>
+                  <div class="order-info-item">
+                    <i class="bi bi-currency-rupee"></i>
+                    <span>Price: <strong>Rs.40 per plate</strong></span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timing Section -->
+    <section class="timing-section" id="timing">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-badge">Opening Hours</span>
+          <h2 class="section-title">When We're Open</h2>
+          <p class="section-subtitle">અમારો સમય જાણો</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="timing-card text-center reveal">
+              <div class="timing-icon">
+                <i class="bi bi-calendar-week"></i>
+              </div>
+              <h4>Monday - Saturday</h4>
+              <p class="highlight-text">5:15 PM - 9:15 PM</p>
+              <p>સવારથી સાંજ સુધી તાજું ભોજન ઉપલબ્ધ</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="timing-card text-center reveal">
+              <div class="timing-icon">
+                <i class="bi bi-calendar-heart"></i>
+              </div>
+              <h4>Sunday</h4>
+              <p class="highlight-text">Orders Accepted</p>
+              <p>તમે રવિવારે પણ ઓર્ડર આપી શકો છો!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-badge">Contact Us</span>
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">અમારો સંપર્ક કરો</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="contact-card reveal">
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <i class="bi bi-whatsapp"></i>
+                </div>
+                <div class="contact-details">
+                  <h5>WhatsApp</h5>
+                  <p>
+                    <a href="https://wa.me/918320837672" target="_blank"
+                      >+91 83208 37672</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <i class="bi bi-telephone-fill"></i>
+                </div>
+                <div class="contact-details">
+                  <h5>Phone</h5>
+                  <p><a href="tel:+918320837672">+91 83208 37672</a></p>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <i class="bi bi-geo-alt-fill"></i>
+                </div>
+                <div class="contact-details">
+                  <h5>Address</h5>
+                  <p>Ahmedabad, Gujarat, India</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="map-container reveal">
+              <iframe
+                src="https://www.google.com/maps?q=MJ+Live+Bhungla+Bataka+Chandkheda+Ahmedabad&output=embed"
+                width="100%"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              >
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="footer-brand">MJ Live Bhungla Bataka</div>
+            <p class="footer-text">
+              Authentic Gujarati catering service delivering delicious Bhungla
+              Bataka and more. Perfect for parties and events!
+            </p>
+            <div class="footer-social">
+              <a href="https://wa.me/918320837672" target="_blank"
+                ><i class="bi bi-whatsapp"></i
+              ></a>
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4">
+            <h5 class="footer-title">Quick Links</h5>
+            <ul class="footer-links">
+              <li>
+                <a href="#home"><i class="bi bi-chevron-right"></i> Home</a>
+              </li>
+              <li>
+                <a href="#about"><i class="bi bi-chevron-right"></i> About</a>
+              </li>
+              <li>
+                <a href="#menu"><i class="bi bi-chevron-right"></i> Menu</a>
+              </li>
+              <li>
+                <a href="#order"><i class="bi bi-chevron-right"></i> Order</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-4">
+            <h5 class="footer-title">Opening Hours</h5>
+            <ul class="footer-links">
+              <li>
+                <a href="#"
+                  ><i class="bi bi-clock"></i> Mon-Sat: 5:15-9:15 PM</a
+                >
+              </li>
+              <li>
+                <a href="#"><i class="bi bi-clock"></i> Sunday: Orders Only</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-4">
+            <h5 class="footer-title">Contact Info</h5>
+            <ul class="footer-links">
+              <li>
+                <a href="tel:+918320837672"
+                  ><i class="bi bi-telephone"></i> +91 83208 37672</a
+                >
+              </li>
+              <li>
+                <a href="#"><i class="bi bi-geo-alt"></i> Ahmedabad, Gujarat</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>2024 MJ Live Bhungla Bataka. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a
+      href="https://wa.me/918320837672?text=Hello! I want to order Bhungla Bataka"
+      class="whatsapp-float"
+      target="_blank"
+    >
+      <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Preloader
+      window.addEventListener("load", function () {
+        const preloader = document.getElementById("preloader");
+        setTimeout(function () {
+          preloader.classList.add("hidden");
+        }, 2200);
+      });
+
+      // Navbar Scroll Effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("mainNav");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Create Particles
+      function createParticles() {
+        const particlesContainer = document.getElementById("particles");
+        if (!particlesContainer) return;
+
+        const particleCount = 25;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement("div");
+          particle.classList.add("particle");
+          particle.style.left = Math.random() * 100 + "%";
+          particle.style.animationDelay = Math.random() * 10 + "s";
+          particle.style.animationDuration = Math.random() * 6 + 8 + "s";
+
+          if (Math.random() > 0.5) {
+            particle.style.background = "var(--accent-cyan)";
+            particle.style.boxShadow = "0 0 10px var(--accent-cyan)";
+          } else {
+            particle.style.background = "var(--accent-orange)";
+            particle.style.boxShadow = "0 0 10px var(--accent-orange)";
+          }
+
+          particlesContainer.appendChild(particle);
+        }
+      }
+      createParticles();
+
+      // Order Form Submit - Direct WhatsApp Redirect
+      document
+        .getElementById("orderForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = document.getElementById("customerName").value;
+          const phone = document.getElementById("customerPhone").value;
+          const plates = document.getElementById("plateCount").value;
+          const date = document.getElementById("orderDate").value;
+          const instructions = document.getElementById(
+            "specialInstructions",
+          ).value;
+
+          // Format date
+          const formattedDate = date
+            ? new Date(date).toLocaleDateString("en-IN", {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })
+            : "Not specified";
+
+          // Calculate total
+          const total = plates * 40;
+
+          // Create WhatsApp message
+          let message = `*NEW ORDER - MJ Live Bhungla Bataka*\n\n`;
+          message += `*Customer Name:* ${name}\n`;
+          message += `*Mobile Number:* ${phone}\n`;
+          message += `*Number of Plates:* ${plates}\n`;
+          message += `*Order Date:* ${formattedDate}\n`;
+          message += `*Total Amount:* Rs.${total}\n`;
+
+          if (instructions && instructions.trim() !== "") {
+            message += `\n*Special Instructions:* ${instructions}\n`;
+          }
+
+          message += `\n_Thank you for your order! Please confirm._`;
+
+          // Encode message for URL
+          const encodedMessage = encodeURIComponent(message);
+
+          // WhatsApp URL with phone number
+          const whatsappURL = `https://wa.me/918320837672?text=${encodedMessage}`;
+
+          // Redirect to WhatsApp
+          window.location.href = whatsappURL;
+        });
+
+      // Set minimum date to today
+      const today = new Date().toISOString().split("T")[0];
+      document.getElementById("orderDate").setAttribute("min", today);
+
+      // Scroll Reveal Animation
+      function revealOnScroll() {
+        const reveals = document.querySelectorAll(".reveal");
+
+        reveals.forEach(function (element) {
+          const windowHeight = window.innerHeight;
+          const elementTop = element.getBoundingClientRect().top;
+          const revealPoint = 120;
+
+          if (elementTop < windowHeight - revealPoint) {
+            element.classList.add("active");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", revealOnScroll);
+      window.addEventListener("load", revealOnScroll);
+
+      // Smooth Scroll for Navigation Links
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener("click", function (e) {
+          const href = this.getAttribute("href");
+          if (href === "#") return;
+
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+
+          const navbarCollapse = document.querySelector(".navbar-collapse");
+          if (navbarCollapse && navbarCollapse.classList.contains("show")) {
+            navbarCollapse.classList.remove("show");
+          }
+        });
+      });
+
+      // Active Navigation Link Update
+      window.addEventListener("scroll", function () {
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        let current = "";
+
+        sections.forEach(function (section) {
+          const sectionTop = section.offsetTop - 150;
+          const sectionHeight = section.offsetHeight;
+
+          if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+          ) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach(function (link) {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+          }
+        });
+      });
+
+      // Intersection Observer
+      if ("IntersectionObserver" in window) {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -80px 0px",
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll(".reveal").forEach(function (element) {
+          observer.observe(element);
+        });
+      }
+    </script>
+  </body>
+</html>
