@@ -1028,6 +1028,164 @@
         font-size: 1.4rem;
       }
 
+      /* Testimonials/Reviews Section - NEW */
+      .testimonials-section {
+        background: linear-gradient(
+          180deg,
+          var(--bg-card) 0%,
+          var(--bg-dark) 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .testimonials-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 50%, rgba(0, 245, 255, 0.03) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 50%, rgba(255, 107, 44, 0.03) 0%, transparent 50%);
+        pointer-events: none;
+      }
+
+      .google-rating-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 15px;
+        background: linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(255, 107, 44, 0.1));
+        border: 2px solid rgba(0, 245, 255, 0.2);
+        border-radius: 20px;
+        padding: 20px 40px;
+        margin-bottom: 50px;
+        backdrop-filter: blur(10px);
+      }
+
+      .google-logo {
+        font-size: 2rem;
+        color: #fff;
+      }
+
+      .rating-score {
+        font-size: 2.5rem;
+        font-weight: 900;
+        background: linear-gradient(90deg, var(--accent-cyan), var(--accent-orange));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .rating-stars {
+        color: #ffc107;
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+      }
+
+      .rating-count {
+        color: var(--text-secondary);
+        font-size: 1rem;
+        font-weight: 500;
+      }
+
+      .testimonial-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 24px;
+        padding: 35px 30px;
+        transition: all 0.4s ease;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .testimonial-card::before {
+        content: '"';
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        font-size: 5rem;
+        font-family: Georgia, serif;
+        color: rgba(0, 245, 255, 0.05);
+        line-height: 1;
+        font-weight: bold;
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-10px);
+        border-color: rgba(0, 245, 255, 0.3);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+        background: var(--bg-card-hover);
+      }
+
+      .testimonial-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .testimonial-avatar {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-orange));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--bg-dark);
+        flex-shrink: 0;
+        box-shadow: 0 4px 15px rgba(0, 245, 255, 0.3);
+      }
+
+      .testimonial-user-info h5 {
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 4px;
+        font-size: 1.1rem;
+      }
+
+      .testimonial-stars {
+        color: #ffc107;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+      }
+
+      .testimonial-text {
+        color: var(--text-secondary);
+        line-height: 1.8;
+        font-size: 0.98rem;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 15px;
+      }
+
+      .testimonial-date {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        font-style: italic;
+        position: relative;
+        z-index: 1;
+      }
+
+      .owner-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-orange));
+        color: var(--bg-dark);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-left: 8px;
+      }
+
       /* Contact Section */
       .contact-section {
         background: linear-gradient(
@@ -1327,6 +1485,16 @@
         .footer-brand {
           font-size: 1.2rem;
         }
+
+        .google-rating-badge {
+          flex-direction: column;
+          padding: 25px 30px;
+          text-align: center;
+        }
+
+        .testimonial-card {
+          padding: 28px 22px;
+        }
       }
 
       @media (max-width: 576px) {
@@ -1399,6 +1567,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#order">Order Now</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#reviews">Reviews</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#contact">Contact</a>
@@ -1706,6 +1877,187 @@
               <h4>Sunday</h4>
               <p class="highlight-text">Orders Accepted</p>
               <p>તમે રવિવારે પણ ઓર્ડર આપી શકો છો!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials/Reviews Section - NEW SECTION ADDED HERE -->
+    <section class="testimonials-section" id="reviews">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-badge">Customer Reviews</span>
+          <h2 class="section-title">What Our Customers Say</h2>
+          <p class="section-subtitle">અમારા ખુશહાલ ગ્રાહકોના રિવ્યૂઝ</p>
+          
+          <!-- Google Rating Badge -->
+          <div class="google-rating-badge reveal">
+            <div class="google-logo">
+              <i class="bi bi-google"></i>
+            </div>
+            <div>
+              <div class="rating-score">4.9</div>
+              <div class="rating-stars">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <div class="rating-count">Based on 64 reviews</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Review 1 - Teena Kumari -->
+          <div class="col-lg-4 col-md-6">
+            <div class="testimonial-card reveal">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">T</div>
+                <div class="testimonial-user-info">
+                  <h5>Teena Kumari <span class="owner-badge">Owner</span></h5>
+                  <div class="testimonial-stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial-text">
+                It makes us really proud to hear that! Thank you for trusting us with your meal. We'll keep doing our best to serve delicious food 🙌🙌🙌
+              </p>
+              <div class="testimonial-date">
+                <i class="bi bi-clock me-1"></i> 11 reviews • 3 months ago
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 2 - Customer Response -->
+          <div class="col-lg-4 col-md-6">
+            <div class="testimonial-card reveal">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">T</div>
+                <div class="testimonial-user-info">
+                  <h5>Harsh Parmar</h5>
+                  <div class="testimonial-stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial-text">
+                Pure and fresh extra tasty food quality excellent I really like to sat every time 😋😋😋
+              </p>
+              <div class="testimonial-date">
+                <i class="bi bi-clock me-1"></i> 11 reviews • 3 months ago
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3 - Jatin Lachhala -->
+          <div class="col-lg-4 col-md-6">
+            <div class="testimonial-card reveal">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">J</div>
+                <div class="testimonial-user-info">
+                  <h5>Jatin Lachhala</h5>
+                  <div class="testimonial-stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial-text">
+                Delivery 🚚✅ (17-10-2020). We had a small fun Friday party at our office and ordered Bhrunga Batakas for the first time via phone. We arranged pickup and delivery through Swiggy Genie.....
+              </p>
+              <div class="testimonial-date">
+                <i class="bi bi-clock me-1"></i> 5 reviews • 4 years ago
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 4 - Pratik Patel -->
+          <div class="col-lg-4 col-md-6">
+            <div class="testimonial-card reveal">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">P</div>
+                <div class="testimonial-user-info">
+                  <h5>Pratik Patel</h5>
+                  <div class="testimonial-stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial-text">
+                An incredible experience with a truly authentic homemade dish! The flavors were absolutely delightful and brought a genuine taste of home. Loved every bite!
+              </p>
+              <div class="testimonial-date">
+                <i class="bi bi-clock me-1"></i> 1 review • Recent
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 5 - Owner Response to Pratik -->
+          <div class="col-lg-4 col-md-6">
+            <div class="testimonial-card reveal">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">T</div>
+                <div class="testimonial-user-info">
+                  <h5>Krunal P <span class="owner-badge">Owner</span></h5>
+                  <div class="testimonial-stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial-text">
+                Thank you for taking the time to share your experience at MJ live Bhrungas Batakai, Pratikbhai! You used the perfect word "Homemade", thank you very much for that. We will try our best to provide the best quality food for the people...
+              </p>
+              <div class="testimonial-date">
+                <i class="bi bi-clock me-1"></i> Owner response
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 6 - Vanitha Grawid -->
+          <div class="col-lg-4 col-md-6">
+            <div class="testimonial-card reveal">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">V</div>
+                <div class="testimonial-user-info">
+                  <h5>Vanitha Grawid</h5>
+                  <div class="testimonial-stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial-text">
+                Bestest quality of batakas, extra ordinary taste of chutney it's a very different taste, and i sure that you never eat like this. And some time you ate then you definitely go again and again.
+              </p>
+              <div class="testimonial-date">
+                <i class="bi bi-clock me-1"></i> 4 reviews • Recent
+              </div>
             </div>
           </div>
         </div>
